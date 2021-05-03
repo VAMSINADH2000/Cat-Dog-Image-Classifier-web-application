@@ -1,0 +1,67 @@
+<html> 
+
+<head>
+<title>ML model</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body
+{
+	color: #4dff4d;
+	background-image: url('static/bg.png');
+}
+.btn{background-color: #80d4ff;
+	 border: none;
+	 color: white;
+	 padding: 13px 30px;
+	 text-align: center;
+	 text-decoration: none;
+	 display: inline-block;
+	 font-size: 16px;
+}
+
+
+
+</style>
+</head>
+
+<body align='center' >
+	<br><br>
+	<br><br>
+	<br><br>
+	<br><br>
+    <!-- <h1>Image Classifier</h1> -->
+    <img id="output" height="200" width="300" src='/static/front2.png'/>
+    <br><br>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+     <input type="file" name="image" value="Upload" class="btn" >
+     <input type="submit" value="Predict" class="btn" style="background-color:#ff66ff"> 
+     <h1 id='result'/>
+
+	</form>
+	<script>
+	var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  	};
+	var l={{label}};
+	var res = document.getElementById('result');
+	if(l==0)
+	{
+		res.innerHTML='It is a <b> Cat. </b>';
+	}
+	else
+	{
+		res.innerHTML='It is a <b> Dog. </b>';
+	}
+	
+
+  	
+	</script>
+
+
+
+</body>
+
+
+</html>
